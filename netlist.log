@@ -1,0 +1,47 @@
+; Top Design: "LowNoise_lib:LNA:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="LowNoise_lib:LNA:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+model EEHEMTM1 EE_HEMT1 
+L:L1  N__4 N__17 L=1 mH Noise=yes  
+L:L2  0 N__19 L=1.0 mH Noise=yes  
+L:L3  0 N__19 L=1.0 mH Noise=yes  
+L:L9  N__15 N__14 L=15 nH Noise=yes  
+L:L8  N__14 N__20 L=1.2 uH Noise=yes  
+C:C1  N__4 0 C=0.22 uF 
+C:C2  0 0 C=0.22 uF 
+C:C3  0 0 C=0.22 uF 
+C:C4  N__16 N__19 C=1 nF 
+C:C5  N__13 0 C=3 pF 
+C:C6  N__13 N__19 C=2 pF 
+C:C10  N__14 N__19 C=4 pF 
+R:R3  N__17 N__16 R=1 MOhm Noise=yes 
+R:R4  N__16 N__13 R=1 MOhm Noise=yes 
+R:R5  N__15 N__14 R=100 Ohm Noise=yes 
+"EEHEMTM1":EE_HEMT1  N__15 N__13 N__19 Temp=-55 Noise=yes 
+AC:AC1 CalcNoise=no SortNoise=0 IncludePortNoise=yes BandwidthForNoise=1 Hz FreqConversion=no UseFiniteDiff=no StatusLevel=2 OutputBudgetIV=no DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="AC1_stim" OutputPlan="AC1_Output" 
+
+SweepPlan: AC1_stim Start=1.0 MHz Stop=10.0 MHz Step=1.0 MHz 
+
+OutputPlan:AC1_Output \
+      Type="Output" \
+      UseNodeNestLevel=yes \
+      NodeNestLevel=2 \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2 \
+      UseDeviceCurrentNestLevel=no \
+      DeviceCurrentNestLevel=0 \
+      DeviceCurrentDeviceType="All" \
+      DeviceCurrentSymSyntax=yes \
+      UseCurrentNestLevel=yes \
+      CurrentNestLevel=999 \
+      UseDeviceVoltageNestLevel=no \
+      DeviceVoltageNestLevel=0 \
+      DeviceVoltageDeviceType="All"
+
+C:C11  N__19 vOUT C=1.2 uF 
+V_Source:SRC2  N__4 0 Type="V_DC" Vdc=4 V SaveCurrent=1 
+L:L10  N__20 N__19 L=47 nH Noise=yes  

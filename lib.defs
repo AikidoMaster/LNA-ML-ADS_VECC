@@ -1,0 +1,4 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+DEFINE LowNoise_lib LowNoise_lib
+ASSIGN LowNoise_lib libMode shared
