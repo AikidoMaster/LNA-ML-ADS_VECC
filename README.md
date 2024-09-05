@@ -61,7 +61,6 @@ Multiple machine learning models are trained and evaluated:
 rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_model.fit(X_train, y_train)
 ```
-
 ### Model Evaluation
 
 Models are evaluated using confusion matrices and classification reports.
@@ -71,6 +70,59 @@ Models are evaluated using confusion matrices and classification reports.
 y_pred_rf = rf_model.predict(X_test)
 print(classification_report(y_test, y_pred_rf))
 ```
+
+## Model Performance
+
+Here are the performance metrics for each model on the test set:
+
+### Random Forest Classifier
+
+```
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      1799
+           1       0.99      0.98      0.98       201
+
+    accuracy                           1.00      2000
+   macro avg       0.99      0.99      0.99      2000
+weighted avg       1.00      1.00      1.00      2000
+```
+
+### Support Vector Machine (SVM)
+
+```
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      1799
+           1       0.98      0.97      0.97       201
+
+    accuracy                           0.99      2000
+   macro avg       0.99      0.98      0.99      2000
+weighted avg       0.99      0.99      0.99      2000
+```
+
+### K-Nearest Neighbors (KNN)
+
+```
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      1.00      1799
+           1       0.94      0.97      0.95       201
+
+    accuracy                           0.99      2000
+   macro avg       0.97      0.98      0.97      2000
+weighted avg       0.99      0.99      0.99      2000
+```
+
+### Model Comparison
+
+The accuracy scores for each model on the test set are:
+
+- Random Forest: 99.75%
+- SVM: 99.45%
+- KNN: 99.10%
+
+All three models perform exceptionally well, with the Random Forest classifier achieving the highest accuracy.
 
 ## Getting Started
 
